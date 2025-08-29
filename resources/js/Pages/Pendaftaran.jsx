@@ -1,5 +1,7 @@
 import React from "react";
 
+import MainLayout from "@/Layouts/MainLayouts";
+
 "use client"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -18,6 +20,16 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import {Switch} from "../components/ui/switch";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 import {
   Card,
@@ -121,6 +133,20 @@ export default function Pendaftaran() {
                             </FormItem>
                             )}
                         />
+                        <Select>
+                        <SelectGroup>
+                            <SelectLabel>Jenis Kelamin</SelectLabel>
+                            <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder="Jenis Kelamin" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectItem value="laki-laki">Laki-Laki</SelectItem>
+                                    <SelectItem value="perempuan">Perempuan</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </SelectGroup>
+                        </Select>
                             <Button type="submit">Daftar</Button>
                         </form>
                     </Form>
@@ -131,3 +157,5 @@ export default function Pendaftaran() {
         
     );
 } 
+
+Pendaftaran.layout = page => <MainLayout children={page} />;

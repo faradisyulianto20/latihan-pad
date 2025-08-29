@@ -1,4 +1,5 @@
 import React from "react";
+import MainLayout from "@/Layouts/MainLayouts";
 
 export default function Pembayaran() {
     return (
@@ -8,3 +9,5 @@ export default function Pembayaran() {
         </div>
     );
 }
+
+Pembayaran.layout = page => <MainLayout children={page} />;
