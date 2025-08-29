@@ -39,7 +39,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ModeToggle } from "@/Components/mode-toggle";
 
 const FormSchema = z.object({
     username: z.string().min(2, { message: "Username must be at least 2 characters." }),
@@ -69,9 +68,6 @@ export default function Pendaftaran() {
     }
     return (
         <>
-            <div className="absolute top-4 right-4">
-                <ModeToggle/>
-            </div>
             <div className="container mx-auto p-4">
                 <Card>
                 <CardHeader>
