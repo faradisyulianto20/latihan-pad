@@ -1,4 +1,4 @@
-j<?php
+<?php
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -18,6 +18,13 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/pendaftaran', function () {
+    return Inertia::render('Pendaftaran');
+});
+
+Route::get('/pembayaran', function () {
+    return Inertia::render('Pembayaran');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
