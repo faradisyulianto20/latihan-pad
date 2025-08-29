@@ -57,7 +57,7 @@ export default function Pendaftaran() {
     }
     return (
         <>
-            <div className="p-4 flex justify-end">
+            <div className="absolute top-4 right-4">
                 <ModeToggle/>
             </div>
             <div className="container mx-auto p-4">

@@ -20,11 +20,11 @@ Route::get('/dashboard', function () {
 
 Route::get('/pendaftaran', function () {
     return Inertia::render('Pendaftaran');
-});
+})->name('pendaftaran');
 
 Route::get('/pembayaran', function () {
     return Inertia::render('Pembayaran');
-});
+})->name('pembayaran');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

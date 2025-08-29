@@ -1,4 +1,19 @@
 import { Head, Link } from '@inertiajs/react';
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const handleImageError = () => {
@@ -37,7 +52,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     />
                                 </svg>
                             </div>
-                            <nav className="-mx-3 flex flex-1 justify-end">
+                            <nav className="-mx-3 flex flex-1 justify-end items-center">
                                 {auth.user ? (
                                     <Link
                                         href={route('dashboard')}
@@ -61,6 +76,23 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         </Link>
                                     </>
                                 )}
+                                <DropdownMenu >
+                                    <DropdownMenuTrigger asChild>
+                                        <Button variant="default">Page</Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-56 me-4" align="start">
+                                        <DropdownMenuLabel>Go to</DropdownMenuLabel>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuGroup>
+                                        <DropdownMenuItem>
+                                            <Link href={route('pendaftaran')}> Pendaftaran </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link href={route('pembayaran')}> Pembayaran </Link>
+                                        </DropdownMenuItem>
+                                        </DropdownMenuGroup>
+                                    </DropdownMenuContent>
+                                    </DropdownMenu>
                             </nav>
                         </header>
 
