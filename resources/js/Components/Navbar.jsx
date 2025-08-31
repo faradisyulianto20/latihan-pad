@@ -4,6 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { motion, useScroll, useTransform } from "framer-motion";
 
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -33,21 +34,19 @@ export default function Navbar() {
                 boxShadow: navbarShadow
             }}
         >
-            <div className="bg-white dark:bg-[hsl(var(--background))] py-2 px-6 lg:px-12 text-black dark:text-white flex items-center justify-between rounded-full dark:border-white border-black ">
-                <h1 className="text-lg font-bold">Sistem Informasi Akademik</h1>
+            <div className="py-2 px-6 lg:px-12 text-black dark:text-white flex items-center justify-between rounded-full dark:border-white border-black ">
+                <h1 className="text-lg font-bold"><Link href="/">Sistem Informasi Akademik</Link></h1>
                 <div className="md:hidden">
                     <Button variant="ghost" size="icon" onClick={toggleMenu}>
                         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </Button>
                 </div>
                 <div className="hidden md:flex space-x-4">
-                    <Link href="/">Home</Link>
                     <Link href="/pendaftaran">Pendaftaran</Link>
                     <Link href="/pembayaran">Pembayaran</Link>
                 </div>
                 {isOpen && (
-                    <div className="block md:hidden absolute top-16 left-0 bg-white bg-[hsl(var(--background))] px-8 shadow-md space-y-4 w-full py- border-[hsl(var(--border))] rounded-lg pb-6">
-                        <Link href="/" className="block">Home</Link>
+                    <div className="block md:hidden absolute top-16 left-0 bg-white dark:bg-[hsl(var(--background))] px-8 shadow-md space-y-4 w-full py- border-[hsl(var(--border))] rounded-lg py-6">
                         <Link href="/pendaftaran" className="block" >Pendaftaran</Link>
                         <Link href="/pembayaran" className="block">Pembayaran</Link>
                     </div>

@@ -9,6 +9,8 @@ import { toast } from "sonner"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { ShineBorder } from "../../../components/magicui/shine-border";
+ 
 import {
   Form,
   FormControl,
@@ -69,9 +71,19 @@ export default function Pendaftaran() {
     return (
         <>
             <div className="container mx-auto p-4">
-                <Card>
+                <Card className="relative overflow-hidden min-h-[300px]">
+                <ShineBorder
+  shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+  className="absolute inset-0 pointer-events-none rounded-xl animate-shine"
+  style={{
+    backgroundImage: "linear-gradient(90deg, #A07CFE, #FE8FB5, #FFBE7B)",
+    backgroundSize: "300% 300%",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "12px"
+  }}
+/>
                 <CardHeader>
-                    <CardTitle className="text-2xl font-bold mb-4">Pendaftaran</CardTitle>
+                    <CardTitle className="text-2xl font-bold">Pendaftaran</CardTitle>
                     <CardDescription className="mb-4">Isilah formulir-formulir berikut!</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -147,6 +159,7 @@ export default function Pendaftaran() {
                         </form>
                     </Form>
                 </CardContent>
+                
                 </Card> 
             </div>
         </>
