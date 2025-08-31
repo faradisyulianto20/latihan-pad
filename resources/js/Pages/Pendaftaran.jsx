@@ -72,7 +72,7 @@ export default function Pendaftaran() {
                 <Card>
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold mb-4">Pendaftaran</CardTitle>
-                    <CardDescription classNamemb-4>Isilah formulir-formulir berikut!</CardDescription>
+                    <CardDescription className="mb-4">Isilah formulir-formulir berikut!</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>

@@ -5,11 +5,11 @@ import ModeToggle from '@/Components/mode-toggle';
 export default function MainLayout({ children }) {
   return (
     <div>
-        <div className="absolute top-4 right-4">
+        <div className="fixed bottom-4 left-4">
             <ModeToggle/>
         </div>
       <Navbar /> 
-      <main className="p-6">
+      <main className="pt-[100px] px-6">
         {children}
       </main>
     </div>

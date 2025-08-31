@@ -1,5 +1,6 @@
 import React from "react";
 import MainLayout from "@/Layouts/MainLayouts";
+import { motion } from "motion/react";
 
 export default function Pembayaran() {
     return (
