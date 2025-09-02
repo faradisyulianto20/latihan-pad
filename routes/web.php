@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::get('/dashboard', function () {
 Route::get('/pendaftaran', function () {
     return Inertia::render('Pendaftaran');
 })->name('pendaftaran');
+
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 
 Route::get('/pembayaran', function () {
     return Inertia::render('Pembayaran');

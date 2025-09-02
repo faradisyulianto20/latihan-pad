@@ -1,11 +1,13 @@
-import React from 'react';
-import Navbar from '@/Components/Navbar';
-import ModeToggle from '@/Components/mode-toggle';
+import React from "react";
+import Navbar from "@/Components/Navbar";
+import ModeToggle from "@/Components/mode-toggle";
+import { Toaster } from "sonner";
 
 import DotGrid from './DotGrid';
 import { useTheme } from "@/components/theme-provider";
 
 export default function MainLayout({ children }) {
+<<<<<<< HEAD
   const { theme } = useTheme();
 
   const baseColor = theme === "dark" ? "#111111" : "#ffffff";
@@ -41,6 +43,7 @@ export default function MainLayout({ children }) {
       <main className="pt-[100px] px-6">
         {children}
       </main>
+      <Toaster richColors position="top-right" />
     </div>
   );
 }

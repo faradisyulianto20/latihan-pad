@@ -1,8 +1,9 @@
 import React from "react";
+import { router } from "@inertiajs/react";
 
 import MainLayout from "@/Layouts/MainLayouts";
 
-"use client"
+("use client")
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
@@ -12,41 +13,48 @@ import { Label } from "@/components/ui/label"
 import { ShineBorder } from "../../../components/magicui/shine-border";
  
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import {Switch} from "../components/ui/switch";
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Switch } from "../components/ui/switch";
 
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 
 const FormSchema = z.object({
-    username: z.string().min(2, { message: "Username must be at least 2 characters." }),
+    username: z
+        .string()
+        .min(2, { message: "Username must be at least 2 characters." }),
     nim: z.string().min(2, { message: "NIM must be at least 2 characters." }),
-    alamat: z.string().min(2, { message: "Alamat must be at least 2 characters." }),
-    orangtua: z.string().min(2, { message: "Orang Tua must be at least 2 characters." }),
+    alamat: z
+        .string()
+        .min(2, { message: "Alamat must be at least 2 characters." }),
+    orangtua: z
+        .string()
+        .min(2, { message: "Orang Tua must be at least 2 characters." }),
+    jenis_kelamin: z.string({ required_error: "Jenis kelamin wajib dipilih." }),
 });
 
 export default function Pendaftaran() {
@@ -56,21 +64,35 @@ export default function Pendaftaran() {
             username: "",
             nim: "",
             alamat: "",
-            orangtua: "",  
+            orangtua: "",
+            jenis_kelamin: "",
         },
-    })
+    });
     function onSubmit(data) {
-        toast("You submitted the following values", {
-        description: (
-            <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-            <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-            </pre>
-        ),
-        })
+        router.post(route("pendaftaran.store"), data, {
+            onSuccess: () => {
+                toast("Pendaftaran berhasil dibuat", {
+                    description: "Data pendaftaran telah berhasil disimpan.",
+                });
+                form.reset({
+                    username: "",
+                    nim: "",
+                    alamat: "",
+                    orangtua: "",
+                    jenis_kelamin: "",
+                });
+            },
+            onError: (errors) => {
+                toast("Pendaftaran gagal dibuat", {
+                    description: JSON.stringify(errors),
+                });
+            },
+        });
     }
     return (
         <>
             <div className="container mx-auto p-4">
+<<<<<<< HEAD
                 <Card className="relative overflow-hidden min-h-[300px]">
                 <ShineBorder
   shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -161,10 +183,123 @@ export default function Pendaftaran() {
                 </CardContent>
                 
                 </Card> 
+=======
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="text-2xl font-bold mb-4">
+                            Pendaftaran
+                        </CardTitle>
+                        <CardDescription className="mb-4">
+                            Isilah formulir-formulir berikut!
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Form {...form}>
+                            <form
+                                onSubmit={form.handleSubmit(onSubmit)}
+                                className=" space-y-6"
+                            >
+                                <FormField
+                                    control={form.control}
+                                    name="username"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Nama</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Nama"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="nim"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>NIM</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="NIM"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="alamat"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Alamat</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Alamat"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="orangtua"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Orang Tua</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    placeholder="Orang Tua"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="jenis_kelamin"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Jenis Kelamin</FormLabel>
+                                            <Select
+                                                onValueChange={field.onChange}
+                                                value={field.value}
+                                            >
+                                                <SelectTrigger className="w-[180px]">
+                                                    <SelectValue placeholder="Jenis Kelamin" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectGroup>
+                                                        <SelectItem value="laki-laki">
+                                                            Laki-Laki
+                                                        </SelectItem>
+                                                        <SelectItem value="perempuan">
+                                                            Perempuan
+                                                        </SelectItem>
+                                                    </SelectGroup>
+                                                </SelectContent>
+                                            </Select>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button type="submit">Daftar</Button>
+                            </form>
+                        </Form>
+                    </CardContent>
+                </Card>
+>>>>>>> fahmi
             </div>
         </>
-        
     );
-} 
+}
 
-Pendaftaran.layout = page => <MainLayout children={page} />;
+Pendaftaran.layout = (page) => <MainLayout children={page} />;
