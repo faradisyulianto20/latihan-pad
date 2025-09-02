@@ -92,7 +92,6 @@ export default function Pendaftaran() {
     return (
         <>
             <div className="container mx-auto p-4">
-<<<<<<< HEAD
                 <Card className="relative overflow-hidden min-h-[300px]">
                 <ShineBorder
   shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -104,87 +103,6 @@ export default function Pendaftaran() {
     borderRadius: "12px"
   }}
 />
-                <CardHeader>
-                    <CardTitle className="text-2xl font-bold">Pendaftaran</CardTitle>
-                    <CardDescription className="mb-4">Isilah formulir-formulir berikut!</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className=" space-y-6">
-                    <FormField
-                        control={form.control}
-                        name="username"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Nama</FormLabel>
-                            <FormControl>
-                            <Input placeholder="Nama" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="nim"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>NIM</FormLabel>
-                            <FormControl>
-                            <Input placeholder="NIM" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                        <FormField
-                            control={form.control}
-                            name="alamat"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Alamat</FormLabel>
-                                <FormControl>
-                                <Input placeholder="Alamat" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="orangtua"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Orang Tua</FormLabel>
-                                <FormControl>
-                                <Input placeholder="Orang Tua" {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
-                        <Select>
-                        <SelectGroup>
-                            <SelectLabel>Jenis Kelamin</SelectLabel>
-                            <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Jenis Kelamin" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectGroup>
-                                    <SelectItem value="laki-laki">Laki-Laki</SelectItem>
-                                    <SelectItem value="perempuan">Perempuan</SelectItem>
-                                </SelectGroup>
-                            </SelectContent>
-                        </SelectGroup>
-                        </Select>
-                            <Button type="submit">Daftar</Button>
-                        </form>
-                    </Form>
-                </CardContent>
-                
-                </Card> 
-=======
-                <Card>
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold mb-4">
                             Pendaftaran
@@ -296,7 +214,6 @@ export default function Pendaftaran() {
                         </Form>
                     </CardContent>
                 </Card>
->>>>>>> fahmi
             </div>
         </>
     );
