@@ -15,6 +15,8 @@ export default function Navbar() {
     const navbarOpacity = useTransform(scrollY, [0, 100], [1, 0.9]);
     const navbarRadius = useTransform(scrollY, [0, 100], ['0.5rem', '9999px']);
     const navbarShadow = useTransform(scrollY, [0, 100], ['0px 0px 0px rgba(0,0,0,0)', '0px 4px 6px rgba(0,0,0,0.1)']);
+    const navbarBackground = useTransform(scrollY, [0, 100], ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.8)']);
+    const navbarBorder = useTransform(scrollY, [0, 100], ['1px solid rgba(255, 255, 255, 0)', '2px solid rgba(0, 0, 0, 0.5)']);
 
     return (
         <motion.nav 
@@ -31,7 +33,9 @@ export default function Navbar() {
                 zIndex: 1000, 
                 borderRadius: navbarRadius, 
                 opacity: navbarOpacity,
-                boxShadow: navbarShadow
+                boxShadow: navbarShadow,
+                background: navbarBackground,
+                border: navbarBorder,
             }}
         >
             <div className="py-2 px-6 lg:px-12 text-black dark:text-white flex items-center justify-between rounded-full dark:border-white border-black ">
